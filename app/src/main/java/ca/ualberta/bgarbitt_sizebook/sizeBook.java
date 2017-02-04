@@ -44,7 +44,7 @@ public class sizeBook extends Activity {
 
         //Retrieving a Hash Map
         Intent intent = getIntent();
-        HashMap<String, ArrayList> people = (HashMap<String, ArrayList>) intent.getSerializableExtra("personEntry");
+        //HashMap<String, ArrayList> people = (HashMap<String, ArrayList>) intent.getSerializableExtra("personEntry");
 
         previousEntries = (ListView) findViewById(R.id.previousSizes);
 
@@ -58,6 +58,9 @@ public class sizeBook extends Activity {
             public void onClick(View v) {
                 setResult(RESULT_OK);
 
+                adapter.notifyDataSetChanged();
+                saveInFile();
+
                 //How we transfer to the next screen.
                 Intent intent = new Intent(sizeBook.this, setSize.class);
                 startActivity(intent);
@@ -69,7 +72,45 @@ public class sizeBook extends Activity {
     protected void onStart() {
         super.onStart();
 
-        //adapter = new ArrayAdapter<Sizes>(this, R.layout.list_item, sizeList);
-        //previousEntries.setAdapter(adapter);
+        loadFromFile();
+
+        adapter = new ArrayAdapter<Sizes>(this, R.layout.list_item, sizeList);
+        previousEntries.setAdapter(adapter);
+    }
+
+    private void loadFromFile() {
+        //Added this line even though it wasn't in the tutorial
+        ArrayList<String> names = new ArrayList<String>();
+
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+
+        } catch (FileNotFoundException e) {
+            sizeList = new ArrayList<Sizes>();
+            sizeList.add(Sizes);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME,
+                    Context.MODE_PRIVATE);
+            //Context.MODE_PRIVATE could have just been 0, same thing.
+
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+
+            fos.close();
+        } catch (FileNotFoundException e) {
+            // TODO: Handle the Exception properly later.
+            // if we have a better idea of what's wrong, we can change this.
+            throw new RuntimeException();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
     }
 }

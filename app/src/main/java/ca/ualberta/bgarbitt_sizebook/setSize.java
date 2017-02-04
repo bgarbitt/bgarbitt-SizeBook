@@ -116,6 +116,7 @@ public class setSize extends Activity {
                  * How we return to the main screen. If we've added name entry,
                  * then the persons entries should be saved.
                  */
+                //finish();
                 startActivity(intent);
             }
         });
