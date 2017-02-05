@@ -31,15 +31,15 @@ import android.widget.Toast;
 
 public class setSize extends Activity {
 
-    private EditText sizeName;
-    private EditText sizeDate;
-    private EditText sizeNeck;
-    private EditText sizeBust;
-    private EditText sizeChest;
-    private EditText sizeWaist;
-    private EditText sizeInseam;
-    private EditText sizeComment;
-    private EditText sizeHip;
+    public EditText sizeName;
+    public EditText sizeDate;
+    public EditText sizeNeck;
+    public EditText sizeBust;
+    public EditText sizeChest;
+    public EditText sizeWaist;
+    public EditText sizeInseam;
+    public EditText sizeComment;
+    public EditText sizeHip;
 
     public HashMap<String, ArrayList> people = new HashMap<String, ArrayList>();
 
@@ -75,38 +75,41 @@ public class setSize extends Activity {
                 Intent intent = new Intent(setSize.this, sizeBook.class);
 
                 if (sizeName != null) {
-                    //storing the inputted texts in their respective Strings.
-                    String textBust = sizeBust.getText().toString();
-                    String textNeck = sizeNeck.getText().toString();
-                    String textName = sizeName.getText().toString();
-                    String textChest = sizeChest.getText().toString();
-                    String textComment = sizeComment.getText().toString();
-                    String textDate = sizeDate.getText().toString();
-                    String textInseam = sizeInseam.getText().toString();
-                    String textWaist = sizeWaist.getText().toString();
-                    String textHip = sizeHip.getText().toString();
+                    //Storing the entries in the class "Sizes" found in "Sizes.java"
+                    Sizes measurements = new Sizes(sizeName.getText().toString());
+                    measurements.setTextName(sizeName.getText().toString());
+                    measurements.setTextBust(sizeBust.getText().toString());
+                    measurements.setTextNeck(sizeNeck.getText().toString());
+                    measurements.setTextChest(sizeChest.getText().toString());
+                    measurements.setTextComment(sizeComment.getText().toString());
+                    measurements.setTextDate(sizeDate.getText().toString());
+                    measurements.setTextInseam(sizeInseam.getText().toString());
+                    measurements.setTextWaist(sizeWaist.getText().toString());
+                    measurements.setTextHip(sizeHip.getText().toString());
 
+                    /**
                     //Creating a list to store the measurements
-                    ArrayList<String> measurements = new ArrayList<String>();
-                    measurements.add(textName);
-                    measurements.add(textDate);
-                    measurements.add(textNeck);
-                    measurements.add(textBust);
-                    measurements.add(textChest);
-                    measurements.add(textWaist);
-                    measurements.add(textHip);
-                    measurements.add(textInseam);
-                    measurements.add(textComment);
+                    ArrayList<String> accountSizes = new ArrayList<String>();
+                    accountSizes.add(textName);
+                    accountSizes.add(textDate);
+                    accountSizes.add(textNeck);
+                    accountSizes.add(textBust);
+                    accountSizes.add(textChest);
+                    accountSizes.add(textWaist);
+                    accountSizes.add(textHip);
+                    accountSizes.add(textInseam);
+                    accountSizes.add(textComment);
+                    */
 
                     /**
                      * storing the persons measurements in a Hash Map.
                      * Hash Map of type: people<String, ArrayList>
                      */
-                    people.get(textName);
-                    people.put(textName, measurements);
+                    //people.get(textName);
+                    //people.put(textName, measurements);
 
                     //Transferring the new updated Hash Map to the main screen.
-                    intent.putExtra("personEntry", people);
+                    //intent.putExtra("personEntry", people);
                 }
 
                 /**

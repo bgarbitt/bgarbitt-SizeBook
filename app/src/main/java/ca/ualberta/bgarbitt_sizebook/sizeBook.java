@@ -34,8 +34,8 @@ public class sizeBook extends Activity {
 
     private String entryName;
 
-    private ArrayList<sizeBook> sizeList;
-    private ArrayAdapter<String> adapter;
+    private ArrayList<Sizes> sizeList;
+    private ArrayAdapter<Sizes> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +72,8 @@ public class sizeBook extends Activity {
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
-
         if (sizeList != null) {
-            adapter = new ArrayAdapter<String>(this, R.layout.list_item, sizeList);
+            adapter = new ArrayAdapter<Sizes>(this, R.layout.list_item, sizeList);
             previousEntries.setAdapter(adapter);
         }
     }
