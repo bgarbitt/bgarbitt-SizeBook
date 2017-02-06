@@ -87,8 +87,6 @@ public class sizeBook extends Activity {
     }
 
     private void loadFromFile() {
-        //Added this line even though it wasn't in the tutorial
-        ArrayList<String> names = new ArrayList<String>();
 
         try {
             FileInputStream fis = openFileInput(FILENAME);
