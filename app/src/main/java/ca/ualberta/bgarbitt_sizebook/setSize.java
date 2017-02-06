@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import com.google.gson.Gson;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,6 +25,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import static android.provider.Telephony.Mms.Part.FILENAME;
+import static ca.ualberta.bgarbitt_sizebook.sizeBook.sizeList;
 
 /**
  * Created by brettgarbitt on 2017-01-31.
@@ -40,8 +44,11 @@ public class setSize extends Activity {
     public EditText sizeInseam;
     public EditText sizeComment;
     public EditText sizeHip;
+<<<<<<< HEAD
 
     public HashMap<String, ArrayList> people = new HashMap<String, ArrayList>();
+=======
+>>>>>>> test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,25 +65,25 @@ public class setSize extends Activity {
         sizeWaist = (EditText) findViewById(R.id.sizeWaist);
         sizeHip = (EditText) findViewById(R.id.sizeHip);
 
-        //BUTTON!
+        //SAVE BUTTON!
         Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             /**
-             * What happens when we press "SAVE" button in activity_current_size.xml
+             * What happens when we press the "SAVE" button in activity_current_size.xml
              *
              * @param v
              */
             public void onClick(View v) {
-                setResult(RESULT_OK);
-
-                //A debugging method. Will remove later
-                Toast.makeText(getApplicationContext(), "save measurements", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(setSize.this, sizeBook.class);
 
                 if (sizeName != null) {
+<<<<<<< HEAD
                     //Storing the entries in the class "Sizes" found in "Sizes.java"
                     Sizes measurements = new Sizes(sizeName.getText().toString());
+=======
+                    //Storing the entries in the class "measurements" found in "Sizes.java"
+                    Sizes measurements = new Sizes(sizeName.getText().toString());
+
+>>>>>>> test
                     measurements.setTextName(sizeName.getText().toString());
                     measurements.setTextBust(sizeBust.getText().toString());
                     measurements.setTextNeck(sizeNeck.getText().toString());
@@ -87,6 +94,7 @@ public class setSize extends Activity {
                     measurements.setTextWaist(sizeWaist.getText().toString());
                     measurements.setTextHip(sizeHip.getText().toString());
 
+<<<<<<< HEAD
                     /**
                     //Creating a list to store the measurements
                     ArrayList<String> accountSizes = new ArrayList<String>();
@@ -110,15 +118,34 @@ public class setSize extends Activity {
 
                     //Transferring the new updated Hash Map to the main screen.
                     //intent.putExtra("personEntry", people);
+=======
+                    sizeList.add(measurements);
+>>>>>>> test
                 }
 
                 /**
                  * How we return to the main screen. If we've added name entry,
                  * then the persons entries should be saved.
                  */
-                startActivity(intent);
+                saveInFile();
+                finish();
             }
         });
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson gson = new Gson();
+            gson.toJson(sizeList, out);
+            out.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException();
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
     }
 }
 

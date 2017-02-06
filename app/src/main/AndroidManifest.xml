@@ -15,8 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".setSize">
-
+        <activity android:name=".setSize"/>
+        <activity android:name=".editSize">
         </activity>
     </application>
 
