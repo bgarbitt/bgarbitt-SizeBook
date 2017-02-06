@@ -80,7 +80,7 @@ public class setSize extends Activity {
                     measurements.setTextInseam(sizeInseam.getText().toString());
                     measurements.setTextWaist(sizeWaist.getText().toString());
                     measurements.setTextHip(sizeHip.getText().toString());
-                    
+
                     sizeList.add(measurements);
 >>>>>>> test
                 }
