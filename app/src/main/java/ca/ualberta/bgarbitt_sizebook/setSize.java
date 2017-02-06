@@ -1,30 +1,18 @@
 package ca.ualberta.bgarbitt_sizebook;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import com.google.gson.Gson;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 import static ca.ualberta.bgarbitt_sizebook.sizeBook.sizeList;
@@ -34,6 +22,8 @@ import static ca.ualberta.bgarbitt_sizebook.sizeBook.sizeList;
  */
 
 public class setSize extends Activity {
+
+    //private static final String FILENAME = "file.sav";
 
     public EditText sizeName;
     public EditText sizeDate;
@@ -47,6 +37,7 @@ public class setSize extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_size);
 

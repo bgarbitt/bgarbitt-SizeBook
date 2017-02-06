@@ -17,12 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import static android.provider.Telephony.Mms.Part.FILENAME;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class sizeBook extends Activity {
 
-    private static final String FILENAME = "file.sav";
+    //private static final String FILENAME = "file.sav";
 
     public static ListView previousEntries;
     public static ArrayList<Sizes> sizeList;
