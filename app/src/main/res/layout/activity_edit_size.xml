@@ -12,8 +12,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/sizeDate"
         android:gravity="center_vertical"
-        android:textSize="18dp"
-        android:layout_alignEnd="@+id/viewNeck" />
+        android:textSize="16dp"
+        android:layout_alignEnd="@+id/viewNeck"
+        android:translationX="5dp" />
 
     <TextView
         android:text="Neck:"
@@ -23,9 +24,10 @@
         android:layout_below="@+id/viewDate"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/sizeBust"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:layout_alignEnd="@+id/viewBust"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:translationX="5dp" />
 
     <TextView
         android:text="Bust:"
@@ -35,9 +37,10 @@
         android:layout_below="@+id/viewNeck"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/sizeChest"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:layout_alignEnd="@+id/viewChest"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:translationX="5dp" />
 
     <TextView
         android:text="Chest:"
@@ -47,9 +50,10 @@
         android:layout_below="@+id/viewBust"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/sizeWaist"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:layout_alignEnd="@+id/viewWaist"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:translationX="5dp" />
 
     <TextView
         android:text="Waist:"
@@ -59,9 +63,10 @@
         android:layout_below="@+id/viewChest"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/sizeHip"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:layout_toStartOf="@+id/sizeHip"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:translationX="5dp" />
 
     <TextView
         android:text="Hip:"
@@ -71,9 +76,10 @@
         android:layout_below="@+id/viewWaist"
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/sizeHip"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:layout_alignEnd="@+id/viewInseam"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:translationX="5dp" />
 
     <TextView
         android:text="Name:"
@@ -82,22 +88,24 @@
         android:id="@+id/viewName"
         android:layout_alignParentTop="true"
         android:layout_alignBottom="@+id/sizeName"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:layout_alignEnd="@+id/viewDate"
         android:layout_alignParentStart="true"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:translationX="5dp" />
 
     <TextView
         android:text="Inseam:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewInseam"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:layout_below="@+id/viewHip"
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/sizeInseam"
         android:layout_toStartOf="@+id/sizeInseam"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:translationX="5dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -109,6 +117,7 @@
         android:layout_marginLeft="0dp"
         android:hint="in inches"
         android:layout_below="@+id/sizeHip"
+        android:textSize="16dp"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -119,6 +128,7 @@
         android:id="@+id/sizeHip"
         android:hint="in inches"
         android:layout_below="@+id/sizeWaist"
+        android:textSize="16dp"
         android:layout_toEndOf="@+id/viewHip" />
 
     <EditText
@@ -131,7 +141,7 @@
         tools:layout_alignParentEnd="false"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/viewName"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:gravity="bottom" />
 
     <EditText
@@ -142,6 +152,7 @@
         android:id="@+id/sizeDate"
         android:hint="yyyy-mm-dd format"
         android:layout_below="@+id/viewName"
+        android:textSize="16dp"
         android:layout_toEndOf="@+id/viewDate" />
 
     <EditText
@@ -154,6 +165,7 @@
         android:layout_marginLeft="0dp"
         android:hint="in inches"
         android:layout_below="@+id/viewDate"
+        android:textSize="16dp"
         android:layout_toEndOf="@+id/viewNeck" />
 
     <EditText
@@ -164,6 +176,7 @@
         android:id="@+id/sizeBust"
         android:hint="in inches"
         android:layout_below="@+id/sizeNeck"
+        android:textSize="16dp"
         android:layout_toEndOf="@+id/viewNeck" />
 
     <EditText
@@ -174,6 +187,7 @@
         android:id="@+id/sizeChest"
         android:hint="in inches"
         android:layout_below="@+id/sizeBust"
+        android:textSize="16dp"
         android:layout_toEndOf="@+id/viewBust" />
 
     <EditText
@@ -184,17 +198,8 @@
         android:id="@+id/sizeWaist"
         android:hint="in inches"
         android:layout_below="@+id/sizeChest"
+        android:textSize="16dp"
         android:layout_toEndOf="@+id/viewChest" />
-
-    <Button
-        android:text="Save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:id="@+id/saveButton"
-        android:layout_below="@+id/sizeComment"
-        android:layout_toEndOf="@+id/viewComment"
-        android:layout_marginStart="27dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -205,6 +210,7 @@
         android:hint="comment here"
         android:gravity="top"
         android:layout_below="@+id/viewInseam"
+        android:textSize="16dp"
         android:layout_toEndOf="@+id/viewInseam" />
 
     <TextView
@@ -212,12 +218,23 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/viewComment"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:gravity="bottom"
         android:layout_alignBaseline="@+id/sizeComment"
         android:layout_alignBottom="@+id/sizeComment"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/sizeComment" />
+        android:layout_toStartOf="@+id/sizeComment"
+        android:translationX="5dp" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveButton"
+        android:layout_below="@+id/sizeComment"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:textSize="16dp" />
 
     <Button
         android:text="DELETE"
@@ -226,6 +243,7 @@
         android:layout_alignTop="@+id/saveButton"
         android:layout_toEndOf="@+id/saveButton"
         android:layout_marginStart="44dp"
-        android:id="@+id/deleteButton" />
+        android:id="@+id/deleteButton"
+        android:textSize="16dp" />
 
 </RelativeLayout>

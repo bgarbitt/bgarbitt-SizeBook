@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 import com.google.gson.Gson;
@@ -28,6 +29,7 @@ public class sizeBook extends Activity {
     public static ListView previousEntries;
     public static ArrayList<Sizes> sizeList;
     public static ArrayAdapter<Sizes> adapter;
+    public static TextView userCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,7 @@ public class sizeBook extends Activity {
 
         adapter = new ArrayAdapter<Sizes>(this, R.layout.list_item, sizeList);
         previousEntries.setAdapter(adapter);
+        displayData();
     }
 
     private void loadFromFile() {
@@ -88,5 +91,10 @@ public class sizeBook extends Activity {
         } catch (IOException e) {
             throw new RuntimeException();
         }
+    }
+
+    private void displayData() {
+        TextView userCount = (TextView) findViewById(R.id.userCount);
+        userCount.setText(String.valueOf(previousEntries.getCount()));
     }
 }

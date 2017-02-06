@@ -6,10 +6,10 @@
     android:orientation="vertical" >
 
     <TextView
-        android:text="Previous Sizes:"
+        android:text="Previous Sizes (click on name to edit):"
         android:layout_height="wrap_content"
         android:id="@+id/textSize"
-        android:textSize="12sp"
+        android:textSize="16sp"
         tools:textSize="20sp"
         android:layout_width="wrap_content" />
 
@@ -17,13 +17,29 @@
         android:id="@+id/previousSizes"
         android:layout_width="fill_parent"
         android:layout_height="263dp"
-        android:layout_weight="1"
+        android:layout_weight="0.73"
         android:scrollbars="vertical" >
     </ListView>
 
+    <TextView
+        android:text="Total users:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/totalUsers"
+        android:layout_weight="0.06"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:text=" "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userCount"
+        android:layout_weight="0.06"
+        android:textSize="16sp"/>
+
     <Button
         android:id="@+id/sizeButton"
-        android:layout_width="match_parent"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:text= "Set Sizes" />
 
