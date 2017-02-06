@@ -44,6 +44,11 @@ public class setSize extends Activity {
     public EditText sizeInseam;
     public EditText sizeComment;
     public EditText sizeHip;
+<<<<<<< HEAD
+=======
+
+    public HashMap<String, ArrayList> people = new HashMap<String, ArrayList>();
+>>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +76,14 @@ public class setSize extends Activity {
             public void onClick(View v) {
 
                 if (sizeName != null) {
+<<<<<<< HEAD
                     //Storing the entries in the class "measurements" found in "Sizes.java"
                     Sizes measurements = new Sizes(sizeName.getText().toString());
 
+=======
+                    //Storing the entries in the class "Sizes" found in "Sizes.java"
+                    Sizes measurements = new Sizes(sizeName.getText().toString());
+>>>>>>> master
                     measurements.setTextName(sizeName.getText().toString());
                     measurements.setTextBust(sizeBust.getText().toString());
                     measurements.setTextNeck(sizeNeck.getText().toString());
@@ -84,7 +94,33 @@ public class setSize extends Activity {
                     measurements.setTextWaist(sizeWaist.getText().toString());
                     measurements.setTextHip(sizeHip.getText().toString());
 
+<<<<<<< HEAD
                     sizeList.add(measurements);
+=======
+                    /**
+                    //Creating a list to store the measurements
+                    ArrayList<String> accountSizes = new ArrayList<String>();
+                    accountSizes.add(textName);
+                    accountSizes.add(textDate);
+                    accountSizes.add(textNeck);
+                    accountSizes.add(textBust);
+                    accountSizes.add(textChest);
+                    accountSizes.add(textWaist);
+                    accountSizes.add(textHip);
+                    accountSizes.add(textInseam);
+                    accountSizes.add(textComment);
+                    */
+
+                    /**
+                     * storing the persons measurements in a Hash Map.
+                     * Hash Map of type: people<String, ArrayList>
+                     */
+                    //people.get(textName);
+                    //people.put(textName, measurements);
+
+                    //Transferring the new updated Hash Map to the main screen.
+                    //intent.putExtra("personEntry", people);
+>>>>>>> master
                 }
 
                 /**

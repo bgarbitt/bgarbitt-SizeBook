@@ -24,9 +24,18 @@ public class sizeBook extends Activity {
 
     private static final String FILENAME = "file.sav";
 
+<<<<<<< HEAD
     public static ListView previousEntries;
     public static ArrayList<Sizes> sizeList;
     public static ArrayAdapter<Sizes> adapter;
+=======
+    private ListView previousEntries;
+
+    private String entryName;
+
+    private ArrayList<Sizes> sizeList;
+    private ArrayAdapter<Sizes> adapter;
+>>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +73,7 @@ public class sizeBook extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+<<<<<<< HEAD
 
         loadFromFile();
 
@@ -86,6 +96,11 @@ public class sizeBook extends Activity {
             sizeList = new ArrayList<Sizes>();
         } catch (IOException e) {
             throw new RuntimeException();
+=======
+        if (sizeList != null) {
+            adapter = new ArrayAdapter<Sizes>(this, R.layout.list_item, sizeList);
+            previousEntries.setAdapter(adapter);
+>>>>>>> master
         }
     }
 }

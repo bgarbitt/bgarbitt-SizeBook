@@ -14,6 +14,7 @@ public class Sizes {
     private String textWaist;
     private String textHip;
 
+<<<<<<< HEAD
     /**
      * Gets text name.
      *
@@ -24,6 +25,29 @@ public class Sizes {
     }
 
     /**
+=======
+public class Sizes {
+    private String textName;
+    private String textBust;
+    private String textNeck;
+    private String textChest;
+    private String textComment;
+    private String textDate;
+    private String textInseam;
+    private String textWaist;
+    private String textHip;
+
+    /**
+     * Gets text name.
+     *
+     * @return the text name
+     */
+    public String getTextName() {
+        return textName;
+    }
+
+    /**
+>>>>>>> master
      * Sets text name.
      *
      * @param textName the text name
@@ -184,6 +208,17 @@ public class Sizes {
     public Sizes(String textName) {
 
         this.textName = textName;
+<<<<<<< HEAD
 
+=======
+        this.textBust = textBust;
+        this.textChest = textChest;
+        this.textComment = textComment;
+        this.textDate = textDate;
+        this.textHip = textHip;
+        this.textInseam = textInseam;
+        this.textWaist = textWaist;
+        this.textNeck = textNeck;
+>>>>>>> master
     }
 }
