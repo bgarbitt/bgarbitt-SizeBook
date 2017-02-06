@@ -186,4 +186,14 @@ public class Sizes {
         this.textName = textName;
 
     }
+
+    /**
+     * Fix for wrong profile name in the listView. Was suggested by my teammate Jeff Cho.
+     * @return
+     */
+    @Override
+    public String toString() {
+        return textName.toString();
+    }
 }
+

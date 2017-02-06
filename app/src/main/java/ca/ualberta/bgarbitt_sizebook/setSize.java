@@ -1,30 +1,18 @@
 package ca.ualberta.bgarbitt_sizebook;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import com.google.gson.Gson;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 import static ca.ualberta.bgarbitt_sizebook.sizeBook.sizeList;
@@ -32,17 +20,45 @@ import static ca.ualberta.bgarbitt_sizebook.sizeBook.sizeList;
 /**
  * Created by brettgarbitt on 2017-01-31.
  */
-
 public class setSize extends Activity {
 
+    //private static final String FILENAME = "file.sav";
+
+    /**
+     * The Size name.
+     */
     public EditText sizeName;
+    /**
+     * The Size date.
+     */
     public EditText sizeDate;
+    /**
+     * The Size neck.
+     */
     public EditText sizeNeck;
+    /**
+     * The Size bust.
+     */
     public EditText sizeBust;
+    /**
+     * The Size chest.
+     */
     public EditText sizeChest;
+    /**
+     * The Size waist.
+     */
     public EditText sizeWaist;
+    /**
+     * The Size inseam.
+     */
     public EditText sizeInseam;
+    /**
+     * The Size comment.
+     */
     public EditText sizeComment;
+    /**
+     * The Size hip.
+     */
     public EditText sizeHip;
 
     @Override
@@ -70,7 +86,15 @@ public class setSize extends Activity {
              */
             public void onClick(View v) {
 
-                if (sizeName != null) {
+                /**
+                 * This block of code is implemented if the user tries to hit the save button
+                 * and they've entered a name in the name field. It is skipped if they left
+                 * the name field empty.
+                 */
+                if (sizeName.getText().toString().length() != 0) {
+                    //Storing entries in the class "measurements" found in "Sizes.java"
+                    Sizes measurements = new Sizes(sizeName.getText().toString());
+
                     measurements.setTextName(sizeName.getText().toString());
                     measurements.setTextBust(sizeBust.getText().toString());
                     measurements.setTextNeck(sizeNeck.getText().toString());
@@ -81,8 +105,11 @@ public class setSize extends Activity {
                     measurements.setTextWaist(sizeWaist.getText().toString());
                     measurements.setTextHip(sizeHip.getText().toString());
 
+                    /**
+                     * Adding our class that we just filled with measurements to the
+                     * ArrayList<Sizes> sizeList.
+                     */
                     sizeList.add(measurements);
->>>>>>> test
                 }
 
                 /**
@@ -95,6 +122,10 @@ public class setSize extends Activity {
         });
     }
 
+    /**
+     * saving the information in sizeList to an external file so that we can call
+     * it in another location
+     */
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);

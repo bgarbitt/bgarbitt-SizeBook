@@ -16,26 +16,31 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import static android.provider.Telephony.Mms.Part.FILENAME;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * The type Size book.
+ */
 public class sizeBook extends Activity {
 
-    private static final String FILENAME = "file.sav";
 
-<<<<<<< HEAD
-    private ListView previousEntries;
+    /**
+     * The constant previousEntries.
+     */
 
-    private String entryName;
-
-    private ArrayList<Sizes> sizeList;
-    private ArrayAdapter<Sizes> adapter;
-=======
     public static ListView previousEntries;
+    /**
+     * The Size list.
+     */
     public static ArrayList<Sizes> sizeList;
+    /**
+     * The Adapter.
+     */
     public static ArrayAdapter<Sizes> adapter;
->>>>>>> test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,16 +78,12 @@ public class sizeBook extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-<<<<<<< HEAD
-        if (sizeList != null) {
-            adapter = new ArrayAdapter<Sizes>(this, R.layout.list_item, sizeList);
-            previousEntries.setAdapter(adapter);
-=======
 
         loadFromFile();
 
         adapter = new ArrayAdapter<Sizes>(this, R.layout.list_item, sizeList);
         previousEntries.setAdapter(adapter);
+        displayData();
     }
 
     private void loadFromFile() {
@@ -100,7 +101,11 @@ public class sizeBook extends Activity {
             sizeList = new ArrayList<Sizes>();
         } catch (IOException e) {
             throw new RuntimeException();
->>>>>>> test
         }
+    }
+
+    private void displayData() {
+        TextView userCount = (TextView) findViewById(R.id.userCount);
+        userCount.setText(String.valueOf(previousEntries.getCount()));
     }
 }

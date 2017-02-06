@@ -17,22 +17,55 @@ import java.io.OutputStreamWriter;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 import static ca.ualberta.bgarbitt_sizebook.sizeBook.sizeList;
+
 /**
  * Created by brettgarbitt on 2017-02-05.
  */
-
 public class editSize extends Activity {
+    /**
+     * The Edit name.
+     */
     public EditText editName;
+    /**
+     * The Edit date.
+     */
     public EditText editDate;
+    /**
+     * The Edit neck.
+     */
     public EditText editNeck;
+    /**
+     * The Edit bust.
+     */
     public EditText editBust;
+    /**
+     * The Edit chest.
+     */
     public EditText editChest;
+    /**
+     * The Edit waist.
+     */
     public EditText editWaist;
+    /**
+     * The Edit inseam.
+     */
     public EditText editInseam;
+    /**
+     * The Edit comment.
+     */
     public EditText editComment;
+    /**
+     * The Edit hip.
+     */
     public EditText editHip;
 
+    /**
+     * The Person.
+     */
     public Sizes person;
+    /**
+     * The Index. Used to find the user's requested measurements.
+     */
     public Integer index;
 
     @Override
@@ -67,11 +100,13 @@ public class editSize extends Activity {
         editWaist.setText(person.getTextWaist());
         editHip.setText(person.getTextHip());
 
-        final Button saveButton = (Button) findViewById(R.id.saveButton);
+
+
+        Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editName != null) {
+                if (editName.getText().toString().length() != 0) {
                     person.setTextBust(editBust.getText().toString());
                     person.setTextNeck(editNeck.getText().toString());
                     person.setTextName(editName.getText().toString());
@@ -83,6 +118,8 @@ public class editSize extends Activity {
                     person.setTextHip(editHip.getText().toString());
 
                     saveInFile();
+                    finish();
+                } else {
                     finish();
                 }
             }
@@ -99,6 +136,10 @@ public class editSize extends Activity {
         });
     }
 
+    /**
+     * saving the information in sizeList to an external file so that we can call
+     * it in another location.
+     */
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
