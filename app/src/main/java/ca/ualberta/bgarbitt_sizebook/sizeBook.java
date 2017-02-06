@@ -22,14 +22,23 @@ import static android.provider.Telephony.Mms.Part.FILENAME;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * The type Size book.
+ */
 public class sizeBook extends Activity {
 
-    //private static final String FILENAME = "file.sav";
-
+    /**
+     * The constant previousEntries.
+     */
     public static ListView previousEntries;
+    /**
+     * The Size list.
+     */
     public static ArrayList<Sizes> sizeList;
+    /**
+     * The Adapter.
+     */
     public static ArrayAdapter<Sizes> adapter;
-    public static TextView userCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

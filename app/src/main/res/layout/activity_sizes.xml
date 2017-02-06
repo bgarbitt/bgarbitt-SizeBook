@@ -11,14 +11,16 @@
         android:id="@+id/textSize"
         android:textSize="16sp"
         tools:textSize="20sp"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        android:translationX="5dp"/>
 
     <ListView
         android:id="@+id/previousSizes"
         android:layout_width="fill_parent"
         android:layout_height="263dp"
         android:layout_weight="0.73"
-        android:scrollbars="vertical" >
+        android:scrollbars="vertical"
+        android:translationX="5dp">
     </ListView>
 
     <TextView
@@ -27,7 +29,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/totalUsers"
         android:layout_weight="0.06"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:translationX="5dp"/>
 
     <TextView
         android:text=" "
@@ -35,7 +38,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/userCount"
         android:layout_weight="0.06"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:translationX="5dp"/>
 
     <Button
         android:id="@+id/sizeButton"
