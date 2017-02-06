@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="Date:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewDate"
+        android:layout_below="@+id/viewName"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/sizeDate"
+        android:gravity="center_vertical"
+        android:textSize="18dp"
+        android:layout_alignEnd="@+id/viewNeck" />
+
+    <TextView
+        android:text="Neck:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewNeck"
+        android:layout_below="@+id/viewDate"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/sizeBust"
+        android:textSize="18dp"
+        android:layout_alignEnd="@+id/viewBust"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:text="Bust:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewBust"
+        android:layout_below="@+id/viewNeck"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/sizeChest"
+        android:textSize="18dp"
+        android:layout_alignEnd="@+id/viewChest"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:text="Chest:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewChest"
+        android:layout_below="@+id/viewBust"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/sizeWaist"
+        android:textSize="18dp"
+        android:layout_alignEnd="@+id/viewWaist"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:text="Waist:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewWaist"
+        android:layout_below="@+id/viewChest"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/sizeHip"
+        android:textSize="18dp"
+        android:layout_toStartOf="@+id/sizeHip"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:text="Hip:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewHip"
+        android:layout_below="@+id/viewWaist"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/sizeHip"
+        android:textSize="18dp"
+        android:layout_alignEnd="@+id/viewInseam"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:text="Name:"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewName"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/sizeName"
+        android:textSize="18dp"
+        android:layout_alignEnd="@+id/viewDate"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:text="Inseam:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewInseam"
+        android:textSize="18dp"
+        android:layout_below="@+id/viewHip"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/sizeInseam"
+        android:layout_toStartOf="@+id/sizeInseam"
+        android:gravity="center_vertical" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeInseam"
+        tools:translationX="0dp"
+        android:layout_marginLeft="0dp"
+        android:hint="in inches"
+        android:layout_below="@+id/sizeHip"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeHip"
+        android:hint="in inches"
+        android:layout_below="@+id/sizeWaist"
+        android:layout_toEndOf="@+id/viewHip" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeName"
+        android:hint="first name"
+        tools:layout_alignParentEnd="false"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/viewName"
+        android:textSize="18dp"
+        android:gravity="bottom" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeDate"
+        android:hint="yyyy-mm-dd format"
+        android:layout_below="@+id/viewName"
+        android:layout_toEndOf="@+id/viewDate" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeNeck"
+        tools:translationX="0dp"
+        android:layout_marginLeft="0dp"
+        android:hint="in inches"
+        android:layout_below="@+id/viewDate"
+        android:layout_toEndOf="@+id/viewNeck" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeBust"
+        android:hint="in inches"
+        android:layout_below="@+id/sizeNeck"
+        android:layout_toEndOf="@+id/viewNeck" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeChest"
+        android:hint="in inches"
+        android:layout_below="@+id/sizeBust"
+        android:layout_toEndOf="@+id/viewBust" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/sizeWaist"
+        android:hint="in inches"
+        android:layout_below="@+id/sizeChest"
+        android:layout_toEndOf="@+id/viewChest" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/saveButton"
+        android:layout_below="@+id/sizeComment"
+        android:layout_toEndOf="@+id/viewComment"
+        android:layout_marginStart="27dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/sizeComment"
+        android:hint="comment here"
+        android:gravity="top"
+        android:layout_below="@+id/viewInseam"
+        android:layout_toEndOf="@+id/viewInseam" />
+
+    <TextView
+        android:text="Comment:"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewComment"
+        android:textSize="18dp"
+        android:gravity="bottom"
+        android:layout_alignBaseline="@+id/sizeComment"
+        android:layout_alignBottom="@+id/sizeComment"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/sizeComment" />
+
+    <Button
+        android:text="DELETE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/saveButton"
+        android:layout_toEndOf="@+id/saveButton"
+        android:layout_marginStart="44dp"
+        android:id="@+id/deleteButton" />
+
+</RelativeLayout>

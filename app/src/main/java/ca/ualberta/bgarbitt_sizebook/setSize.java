@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import com.google.gson.Gson;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,6 +25,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import static android.provider.Telephony.Mms.Part.FILENAME;
+import static ca.ualberta.bgarbitt_sizebook.sizeBook.sizeList;
 
 /**
  * Created by brettgarbitt on 2017-01-31.
@@ -46,8 +50,6 @@ public class setSize extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_size);
 
-        HashMap<String, ArrayList> people = new HashMap<String, ArrayList>();
-
         sizeBust = (EditText) findViewById(R.id.sizeBust);
         sizeNeck = (EditText) findViewById(R.id.sizeNeck);
         sizeName = (EditText) findViewById(R.id.sizeName);
@@ -67,16 +69,12 @@ public class setSize extends Activity {
              * @param v
              */
             public void onClick(View v) {
-                setResult(RESULT_OK);
-
-                //A debugging method. Will remove later
-                Toast.makeText(getApplicationContext(), "save measurements", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(setSize.this, sizeBook.class);
 
                 if (sizeName != null) {
-                    //Storing the entries in the class "Sizes" found in "Sizes.java"
+                    //Storing the entries in the class "measurements" found in "Sizes.java"
                     Sizes measurements = new Sizes(sizeName.getText().toString());
+
+                    measurements.setTextName(sizeName.getText().toString());
                     measurements.setTextBust(sizeBust.getText().toString());
                     measurements.setTextNeck(sizeNeck.getText().toString());
                     measurements.setTextChest(sizeChest.getText().toString());
@@ -86,40 +84,32 @@ public class setSize extends Activity {
                     measurements.setTextWaist(sizeWaist.getText().toString());
                     measurements.setTextHip(sizeHip.getText().toString());
 
-                    /**
-                     //Creating a list to store the measurements
-                     ArrayList<String> measurements = new ArrayList<String>();
-                     measurements.add(textName);
-                     measurements.add(textDate);
-                     measurements.add(textNeck);
-                     measurements.add(textBust);
-                     measurements.add(textChest);
-                     measurements.add(textWaist);
-                     measurements.add(textHip);
-                     measurements.add(textInseam);
-                     measurements.add(textComment);
-                     */
-
-
-                    /**
-                     * storing the persons measurements in a Hash Map.
-                     * Hash Map of type: people<String, ArrayList>
-                     */
-                    //people.get(textName);
-                    //people.put(textName, measurements);
-
-                    //Transferring the new updated Hash Map to the main screen.
-                    //intent.putExtra("personEntry", people);
+                    sizeList.add(measurements);
                 }
 
                 /**
                  * How we return to the main screen. If we've added name entry,
                  * then the persons entries should be saved.
                  */
-                //finish();
-                startActivity(intent);
+                saveInFile();
+                finish();
             }
         });
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson gson = new Gson();
+            gson.toJson(sizeList, out);
+            out.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException();
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
     }
 }
 

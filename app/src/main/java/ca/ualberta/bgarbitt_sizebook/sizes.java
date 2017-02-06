@@ -181,25 +181,9 @@ public class Sizes {
      *
      * @param textName the text name
      */
-    public Sizes(String textName,
-                 String textBust,
-                 String textChest,
-                 String textComment,
-                 String textDate,
-                 String textHip,
-                 String textInseam,
-                 String textWaist,
-                 String textNeck) {
+    public Sizes(String textName) {
 
         this.textName = textName;
-        this.textBust = textBust;
-        this.textChest = textChest;
-        this.textComment = textComment;
-        this.textDate = textDate;
-        this.textHip = textHip;
-        this.textInseam = textInseam;
-        this.textWaist = textWaist;
-        this.textNeck = textNeck;
 
     }
 }
